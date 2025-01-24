@@ -1,25 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import { productsArray } from '../products-data'
+import { ProductsService } from '@catalog/products.service';
+import { CartService } from '@core/site-header/cart.service';
 
 @Component({
   selector: 'bot-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent {
-  products: Product[] = [...productsArray];
+export class SearchComponent implements OnInit {
+  products: Product[] = [];
   searchTerm: string = '';
   cart: Product[] = [];
 
-  constructor() { }
+  constructor(private productsService: ProductsService, private cartService: CartService) { }
 
-  ngOnInit() {
-    this.products = [...productsArray];
+  ngOnInit(){
+    this.productsService.getProducts().subscribe((products) => this.products = products);
+  
   }
 
   addToCart(product: Product) {
-    this.cart.push(product);
+    this.cartService.add(product);
   }
 
   filter(event: Event) {
@@ -34,3 +36,4 @@ export class SearchComponent {
       );
   }
 }
+// to use async pipe simply expose the observable as a property then in the template add the async ()html file
