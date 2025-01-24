@@ -1,7 +1,7 @@
-import { computed, Injectable, signal } from "@angular/core";
+import { computed, Injectable, InjectionToken, signal } from "@angular/core";
 import { Product } from "@shared/product.model";
 
-@Injectable({providedIn: 'root'})
+@Injectable({providedIn: 'root'}) //metadata saying provideIn root tells angular to go ahead and create a provider for us
 export class CartService {
     private cartItems = signal<Product[]>([]); 
 

@@ -33,6 +33,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 // to create a servie we create a class and mark it as injectable then inject your service into where you want it.
 
+// what is an observable:
+Observables: Observables are a way to handle asynchronous data in Angular. They emit values over time, and components can subscribe to them to receive these values.
+
 // an RXJS observable is a stream of data where values are emitted over time, anyone who wants to use that data becomes a subscriber to the observable.
 
 // What are signals:
@@ -44,3 +47,10 @@ now if you wanted to update counter you would call counter.update((oldValue) => 
 dependency injection is a design pattern which prescribes passing into a class any dependencies that it needs rather than letting the class itself create those dependencies.
 with dependency injection, you can easily swap out one implementation of a dependency for another, without having to change.
 For example, consider this ProductComponent class, which is responsible for displaying information about products from our database. Let's assume this app is not a web application so it's going to be working directly with the database. And we want to delegate all of the responsibility of working with the database to services. For example, we may have a ProductRepository class that is responsible for fetching and updating products in the database. This means that the ProductComponent needs an instance of the ProductRepository. With dependency injection, instead of creating the ProductRepository class ourselves, we take in the ProductRepository as a parameter in the constructor and then store that in a local field for use within the ProductComponent class.
+
+//what are Providers and Injectors: 
+text book definition:  providers and injectors actually work together to create instances of services in our application. Essentially, providers are a set of instructions that define how to create a service, and injectors are actual instances of an Angular injector class, which actually do the work of creating the instances of your services, including handling when and where to create them
+
+My own words: in other words, providers are the blueprint for creating a service, and injectors are the actual factory
+
+his words:  providers are instructions that define how to create a service and injectors define when and where and how many of those services to create.

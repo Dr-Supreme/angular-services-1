@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductsService } from '@catalog/products.service';
 import { CartService } from '@core/site-header/cart.service';
@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   searchTerm: string = '';
   cart: Product[] = [];
 
-  constructor(private productsService: ProductsService, private cartService: CartService) { }
+  constructor(private productsService: ProductsService,  private cartService: CartService) { }
 
   ngOnInit(){
     this.productsService.getProducts().subscribe((products) => this.products = products);
