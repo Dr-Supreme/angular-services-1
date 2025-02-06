@@ -15,8 +15,14 @@ import { EngineersService } from './engineer.service';
       useValue: {
         persistanceType: 'local',
         persistanceKey: 'squad-cart',
-        multi: true,
+        multi: false,
       }
+    },
+    {
+      provide: CartService,
+      useFactory: (cartOptions: CartOptions) => {return new CartService(cartOptions); },
+      deps: [CART_OPTIONS_TOKEN],
+      multi: false,
     },
     {
       provide: CART_OPTIONS_TOKEN,
@@ -33,10 +39,10 @@ import { EngineersService } from './engineer.service';
       deps: [CART_OPTIONS_TOKEN],
       multi : true,
     },
-    {
-      provide: IProductsServiceToken,
-      useFactory: EngineersService,
-    }
+    // {
+    //   provide: IProductsServiceToken,
+    //   useFactory: EngineersService,
+    // }
   ],
 })
 export class SquadModule { }

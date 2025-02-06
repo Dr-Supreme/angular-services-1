@@ -58,3 +58,14 @@ his words:  providers are instructions that define how to create a service and i
 you can use Interfaces for your dependecies but you have to use custom injection tokens
 
 Deps is way to define dependecies that this provider needs to inject into the service that its providing.
+
+Injectors resolve dependecies and iject them into classes or components 
+
+## modifiers
+@self modifier says that this dependecy must be provided by this components own providers
+
+@skipSelf says if i have provieded a provider for this component dont use it keep traversign the tree until you find another provider.
+
+@Host refers to the element that hosts the current element
+
+@optional modifier says its okay if this dependency/provider is not provided
