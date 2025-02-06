@@ -54,3 +54,7 @@ text book definition:  providers and injectors actually work together to create 
 My own words: in other words, providers are the blueprint for creating a service, and injectors are the actual factory
 
 his words:  providers are instructions that define how to create a service and injectors define when and where and how many of those services to create.
+
+you can use Interfaces for your dependecies but you have to use custom injection tokens
+
+Deps is way to define dependecies that this provider needs to inject into the service that its providing.
